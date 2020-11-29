@@ -14,6 +14,7 @@ from keras.utils import np_utils
 from keras.callbacks import ModelCheckpoint
 from keras import backend as K
 K.common.set_image_dim_ordering('th')
+
 #K.common.image_dim_ordering('tf')
 #K.set_image_dim_ordering('tf')
 

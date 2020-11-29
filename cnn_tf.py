@@ -6,7 +6,8 @@ import pickle, os, cv2
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 def get_image_size():
-	img = cv2.imread('gestures/0/100.jpg', 0)
+	img = cv2.imread('/gestures/0/100.jpg',0)
+	#cv2.imshow('img',img)
 	return img.shape
 
 def get_num_of_classes():
