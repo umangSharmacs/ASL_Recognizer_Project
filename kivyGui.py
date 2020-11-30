@@ -124,9 +124,9 @@ class SimpleApp(App):
         Prakhar Srivastava   101983045
 
 
-        Students of COE20
+        Students of 3COE20
 
-        Under the guidance of Dr. Komal Gill
+        Under the guidance of Komal Gill
        
         """, color=(1,1,1,1), background_color=(199/255,44/255,65/255,1),background_normal='', background_down=''))
         
