@@ -70,10 +70,8 @@ def get_hand_hist(webcam_permission):
 	cam.release()
 	cv2.destroyAllWindows()
 	with open("hist", "wb") as f:
-		try:
-			pickle.dump(hist, f)
-		except:
-			print("No hand hist created.")
+		pickle.dump(hist, f)
 
 
-#get_hand_hist()
+
+# get_hand_hist(True)

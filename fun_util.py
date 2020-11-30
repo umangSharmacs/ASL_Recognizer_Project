@@ -222,6 +222,8 @@ def calculator_mode(cam):
 		cv2.imshow("Recognizing gesture", res)
 		cv2.imshow("thresh", thresh)
 		keypress = cv2.waitKey(1)
+		if keypress == ord('s'):
+			return
 		if keypress == ord('q') or keypress == ord('t'):
 			break
 		if keypress == ord('v') and is_voice_on:
@@ -229,6 +231,9 @@ def calculator_mode(cam):
 		elif keypress == ord('v') and not is_voice_on:
 			is_voice_on = True
 
+
+	if keypress == ord('s'):
+		return
 	if keypress == ord('t'):
 		return 1
 	else:
@@ -290,12 +295,17 @@ def text_mode(cam):
 		cv2.imshow("Recognizing gesture", res)
 		cv2.imshow("thresh", thresh)
 		keypress = cv2.waitKey(1)
+		if keypress == ord('s'):
+			return
 		if keypress == ord('q') or keypress == ord('c'):
 			break
 		if keypress == ord('v') and is_voice_on:
 			is_voice_on = False
 		elif keypress == ord('v') and not is_voice_on:
 			is_voice_on = True
+
+	if keypress == ord('s'):
+		return
 
 	if keypress == ord('c'):
 		return 2
@@ -311,6 +321,9 @@ def recognize():
 	count_same_frame = 0
 	keypress = 1
 	while True:
+		if keypress == ord('s'):
+			return
+
 		if keypress == 1:
 			keypress = text_mode(cam)
 		elif keypress == 2:
@@ -318,5 +331,5 @@ def recognize():
 		else:
 			break
 
-#keras_predict(model, np.zeros((50, 50), dtype = np.uint8))		
+keras_predict(model, np.zeros((50, 50), dtype = np.uint8))		
 #recognize()
