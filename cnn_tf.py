@@ -2,6 +2,7 @@ import tensorflow as tf
 import numpy as np
 import pickle, os, cv2
 
+
 tf.logging.set_verbosity(tf.logging.INFO)
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
