@@ -15,6 +15,8 @@ from kivy.uix.label import Label
 from set_hand_hist import get_hand_hist
 from kivy.graphics import *
 
+import cv2 as cv
+import os,sys
 # from kivy.core.window import Window
 
 from fun_util import recognize
@@ -41,7 +43,12 @@ class SimpleApp(App):
                 #print('The checkbox', checkbox, 'is inactive')
                 self.webcam_permission=False
         def fun_util_button(instance):
+            #pass
             recognize()
+
+        def show_gestures_function(instance):
+            img=cv.imread(os.path.join(sys.path[0], "full_img.jpg"))
+            cv.imshow("Recognizable gestures",img)
 
         wbcpermission_popup = Popup(title='Permission Denied',content=Label(text='Give Webcam Permission before proceeding further.'),size_hint=(None, None), size=(400, 400))
         
@@ -108,8 +115,11 @@ class SimpleApp(App):
         7. Once the recognition is stopped close the recognition tabs.
         """, color=(238/255,69/255,64/255,1), background_color=(45/255,20/255,44/255,1),background_normal='', background_down='')
         fun_util_buttonn=Button(text='Press here',background_color=(81/255,10/255,50/255,1), size_hint=(1,1), background_normal='')
+        show_gestures=Button(text='Show Recognizable Gestures',background_color=(81/255,10/255,50/255,1), size_hint=(1,1), background_normal='')
         fun_util_buttonn.bind(on_press=fun_util_button)
+        show_gestures.bind(on_press=show_gestures_function)
         layout4.add_widget(fun_util_buttonn)
+        layout4.add_widget(show_gestures)
         layout3.add_widget(layout4)
         layout3.add_widget(l1)
         main_layout.add_widget(layout3)
